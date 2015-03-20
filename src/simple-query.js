@@ -25,14 +25,18 @@
 			var element = arguments[0];
 			switch(arguments.length) {
 				case 2:
-					$(element).css(arguments[1]);
-					break;
+					var styles = arguments[1];
+
+					for (var property in styles) {
+					element.style[property] = styles[property];
+				}
+			break;
 				case 3:
-					$(element).css(arguments[1], arguments[2]);
-					break;
+					element.style[arguments[1]] = arguments[2];
+			break;
 				default:
 					throw 'simpleQuery.css() called with bad arguments';
-			}
+				}
 		}
 
 	};
